@@ -54,11 +54,12 @@ public abstract class BaseViewDelegate<T extends ViewDataBinding> implements IDe
 
     @Override
     public void initWidget() {
-
+        setNavBarColor();
+        setStatusBarColor();
     }
 
     @SuppressWarnings("unchecked")
-    public <D extends Activity> D getActivity() {
+    protected <D extends Activity> D getActivity() {
         return (D) this.mViewBinding.getRoot().getContext();
     }
 }

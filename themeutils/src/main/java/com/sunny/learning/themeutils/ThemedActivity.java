@@ -18,6 +18,9 @@ import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.learning.sunny.basemvp.databinder.DataBindActivity;
+import com.learning.sunny.basemvp.model.IModel;
+import com.learning.sunny.basemvp.view.IDelegate;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.iconics.context.IconicsContextWrapper;
 import com.mikepenz.iconics.typeface.IIcon;
@@ -25,7 +28,7 @@ import com.orhanobut.hawk.Hawk;
 
 import java.util.ArrayList;
 
-public abstract class ThemedActivity extends AppCompatActivity implements UiElementInizializer {
+public abstract class ThemedActivity<V extends IDelegate, M extends IModel> extends DataBindActivity<V, M> implements UiElementInizializer {
 
     private ThemeHelper themeHelper;
 
@@ -42,22 +45,23 @@ public abstract class ThemedActivity extends AppCompatActivity implements UiElem
     }
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
         updateTheme();
         updateUiElements();
     }
 
-    public ThemeHelper getThemeHelper() { return themeHelper; }
+    public ThemeHelper getThemeHelper() {
+        return themeHelper;
+    }
 
-    public void updateTheme(){
+    public void updateTheme() {
         themeHelper.updateTheme();
         coloredNavBar = Hawk.get(getString(R.string.preference_colored_nav_bar), false);
         obscuredStatusBar = Hawk.get(getString(R.string.preference_translucent_status_bar), true);
         applyThemeSingleImgAct = Hawk.get("apply_theme_img_act", true);
         customIconColor = Hawk.get(getString(R.string.preference_custom_icon_color), false);
     }
-
 
 
     @CallSuper
@@ -93,13 +97,13 @@ public abstract class ThemedActivity extends AppCompatActivity implements UiElem
         }
     }
 
-    protected void setScrollViewColor(ScrollView scr){
+    protected void setScrollViewColor(ScrollView scr) {
         themeHelper.setScrollViewColor(scr);
     }
 
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public void setRecentApp(String text){
+    public void setRecentApp(String text) {
         // TODO: 6/29/17 find a way
         /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             BitmapDrawable drawable = ((BitmapDrawable) getDrawable(R.mipmap.ic_launcher));
@@ -137,6 +141,7 @@ public abstract class ThemedActivity extends AppCompatActivity implements UiElem
     public void themeSeekBar(SeekBar bar) {
         themeHelper.themeSeekBar(bar);
     }
+
     public int getPrimaryColor() {
         return themeHelper.getPrimaryColor();
     }
@@ -145,45 +150,47 @@ public abstract class ThemedActivity extends AppCompatActivity implements UiElem
         return themeHelper.getAccentColor();
     }
 
-    public Theme getBaseTheme(){ return  themeHelper.getBaseTheme(); }
+    public Theme getBaseTheme() {
+        return themeHelper.getBaseTheme();
+    }
 
-    public int getBackgroundColor(){
+    public int getBackgroundColor() {
         return themeHelper.getBackgroundColor();
     }
 
-    protected Drawable getPlaceHolder(){
+    protected Drawable getPlaceHolder() {
         return themeHelper.getPlaceHolder();
     }
 
-    protected int getInvertedBackgroundColor(){
+    protected int getInvertedBackgroundColor() {
         return themeHelper.getInvertedBackgroundColor();
     }
 
-    public int getTextColor(){
+    public int getTextColor() {
         return themeHelper.getTextColor();
     }
 
-    public int getSubTextColor(){
+    public int getSubTextColor() {
         return themeHelper.getSubTextColor();
     }
 
-    public int getCardBackgroundColor(){
+    public int getCardBackgroundColor() {
         return themeHelper.getCardBackgroundColor();
     }
 
-    public int getIconColor(){
+    public int getIconColor() {
         return themeHelper.getIconColor();
     }
 
-    protected int getDrawerBackground(){
+    protected int getDrawerBackground() {
         return themeHelper.getDrawerBackground();
     }
 
-    public int getDialogStyle(){
+    public int getDialogStyle() {
         return themeHelper.getDialogStyle();
     }
 
-    protected int getPopupToolbarStyle(){
+    protected int getPopupToolbarStyle() {
         return themeHelper.getPopupToolbarStyle();
     }
 
@@ -191,7 +198,7 @@ public abstract class ThemedActivity extends AppCompatActivity implements UiElem
         return themeHelper.getSpinnerAdapter(items);
     }
 
-    protected int getDefaultThemeToolbarColor3th(){
+    protected int getDefaultThemeToolbarColor3th() {
         return themeHelper.getDefaultThemeToolbarColor3th();
     }
 
@@ -203,19 +210,21 @@ public abstract class ThemedActivity extends AppCompatActivity implements UiElem
         themeHelper.themeCheckBox(chk);
     }
 
-    protected void themeButton(Button btn) {themeHelper.themeButton(btn);}
+    protected void themeButton(Button btn) {
+        themeHelper.themeButton(btn);
+    }
 
-    public void setSwitchColor(int color, SwitchCompat... sw){
+    public void setSwitchColor(int color, SwitchCompat... sw) {
         for (SwitchCompat switchCompat : sw)
             themeHelper.setSwitchCompactColor(switchCompat, color);
     }
 
-    public void setTextViewColor(int color, TextView... textViews){
-        for (TextView txt: textViews)
+    public void setTextViewColor(int color, TextView... textViews) {
+        for (TextView txt : textViews)
             themeHelper.setTextViewColor(txt, color);
     }
 
-    public IconicsDrawable getToolbarIcon(IIcon icon){
+    public IconicsDrawable getToolbarIcon(IIcon icon) {
         return themeHelper.getToolbarIcon(icon);
     }
 }
