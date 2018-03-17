@@ -17,5 +17,6 @@ public class AlertDialogHelper {
 
 //    public static AlertDialog getTextDialog(ThemedActivity activity, @StringRes int title, @StringRes int message) {
 //        AlertDialog.Builder builder = new AlertDialog.Builder(activity, activity.getDialogStyle());
+//
 //    }
 }
