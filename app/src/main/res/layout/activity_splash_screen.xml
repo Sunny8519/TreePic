@@ -11,7 +11,7 @@
             android:layout_width="175dp"
             android:layout_height="175dp"
             android:contentDescription="@null"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/leaf_pic"
             app:layout_constraintBottom_toTopOf="@+id/pb"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

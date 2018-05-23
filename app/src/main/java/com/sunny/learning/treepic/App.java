@@ -1,6 +1,7 @@
 package com.sunny.learning.treepic;
 
 import android.app.Application;
+import android.support.annotation.IntDef;
 
 import com.orhanobut.hawk.Hawk;
 

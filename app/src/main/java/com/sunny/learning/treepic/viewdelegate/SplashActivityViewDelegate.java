@@ -1,4 +1,4 @@
-package com.sunny.learning.treepic.activities.base.viewdelegate;
+package com.sunny.learning.treepic.viewdelegate;
 
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
@@ -16,7 +16,7 @@ import com.sunny.learning.treepic.databinding.ActivitySplashScreenBinding;
  * desc:
  */
 
-public class SplashViewDelegate extends BaseViewDelegate<ActivitySplashScreenBinding> {
+public class SplashActivityViewDelegate extends BaseViewDelegate<ActivitySplashScreenBinding> {
     @Override
     public int getRootLayoutId() {
         return R.layout.activity_splash_screen;
@@ -36,11 +36,14 @@ public class SplashViewDelegate extends BaseViewDelegate<ActivitySplashScreenBin
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         );
 
+        setNavBarColor();
+        setStatusBarColor();
     }
 
+//    private void
+
     /*设置导航栏颜色*/
-    @Override
-    public void setNavBarColor() {
+    private void setNavBarColor() {
         /*如果系统版本大于等于5.0*/
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getActivity().getWindow().setNavigationBarColor(ColorPalette.getTransparentColor(
@@ -49,11 +52,10 @@ public class SplashViewDelegate extends BaseViewDelegate<ActivitySplashScreenBin
     }
 
     /*设置状态栏颜色*/
-    @Override
-    public void setStatusBarColor() {
+    private void setStatusBarColor() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getActivity().getWindow().setNavigationBarColor(ColorPalette.getTransparentColor(
-                    ContextCompat.getColor(App.getInstance(), R.color.md_black_1000), 70));
+            getActivity().getWindow().setStatusBarColor(ColorPalette.getTransparentColor(
+                    ContextCompat.getColor(App.getInstance(), R.color.accent_orange), 70));
         }
     }
 }

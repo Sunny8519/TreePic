@@ -18,9 +18,6 @@ import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.learning.sunny.basemvp.databinder.DataBindActivity;
-import com.learning.sunny.basemvp.model.IModel;
-import com.learning.sunny.basemvp.view.IDelegate;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.iconics.context.IconicsContextWrapper;
 import com.mikepenz.iconics.typeface.IIcon;
@@ -28,7 +25,7 @@ import com.orhanobut.hawk.Hawk;
 
 import java.util.ArrayList;
 
-public abstract class ThemedActivity<V extends IDelegate, M extends IModel> extends DataBindActivity<V, M> implements UiElementInizializer {
+public abstract class ThemedActivity extends AppCompatActivity implements UiElementInizializer {
 
     private ThemeHelper themeHelper;
 
@@ -36,7 +33,6 @@ public abstract class ThemedActivity<V extends IDelegate, M extends IModel> exte
     private boolean obscuredStatusBar;
     private boolean applyThemeSingleImgAct;
     private boolean customIconColor;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

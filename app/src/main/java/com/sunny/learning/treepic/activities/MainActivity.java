@@ -1,7 +1,9 @@
-package com.sunny.learning.treepic;
+package com.sunny.learning.treepic.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.sunny.learning.treepic.R;
 
 public class MainActivity extends AppCompatActivity {
 

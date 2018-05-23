@@ -23,8 +23,4 @@ public interface IDelegate {
     int getOptionsMenuId();
 
     Toolbar getToolbar();
-
-    void setNavBarColor();
-
-    void setStatusBarColor();
 }

@@ -23,14 +23,22 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation "com.android.support:appcompat-v7:$supportVersion"
-    compile "com.android.support:support-v4:$supportVersion"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation "com.android.support:appcompat-v7:$supportVersion"
+    compile "com.android.support:support-v4:$supportVersion"
+    implementation "com.android.support:design:$supportVersion"
+
     implementation 'com.orhanobut:hawk:2.0.1'
-    implementation project(':themeutils')
+
     implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+
+    compile 'com.squareup.okio:okio:1.14.0'
+
+    implementation project(':themeutils')
     implementation project(':basemvp')
+    implementation project(':utils')
 }
