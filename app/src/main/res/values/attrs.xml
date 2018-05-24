@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="NavigationEntry">
+        <attr name="itemIcon" format="string"/>
+        <attr name="itemText" format="reference" />
+    </declare-styleable>
+</resources>

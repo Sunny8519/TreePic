@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="text_size_24sp">24sp</dimen>
+    <dimen name="text_size_16sp">16sp</dimen>
+
+    <!--NavigationEntry-->
+    <dimen name="nav_entry_text_padding">3dp</dimen>
+    <dimen name="nav_entry_horizontal_spacing">22dp</dimen>
+    <dimen name="nav_entry_vertical_spacing">16dp</dimen>
+</resources>
