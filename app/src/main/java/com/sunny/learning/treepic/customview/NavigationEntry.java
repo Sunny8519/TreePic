@@ -2,8 +2,10 @@ package com.sunny.learning.treepic.customview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -18,7 +20,7 @@ import com.sunny.learning.treepic.R;
 /**
  * author: Sunny
  * time: 2018/5/24
- * desc:
+ * desc: NavigationDrawer中Item View
  */
 public class NavigationEntry extends LinearLayout {
     private ThemedIcon mIvIcon;
@@ -36,6 +38,22 @@ public class NavigationEntry extends LinearLayout {
         super(context, attrs, defStyleAttr);
 
         init(context, attrs);
+    }
+
+    /**
+     * 设置item文本颜色
+     * @param textColor 文本颜色
+     */
+    public void setTextColor(@ColorInt int textColor) {
+        this.mTvText.setTextColor(textColor);
+    }
+
+    /**
+     * 设置图标颜色
+     * @param iconColor 图标颜色
+     */
+    public void setIconColor(@ColorInt int iconColor) {
+        this.mIvIcon.setColor(iconColor);
     }
 
     private void init(Context context, @Nullable AttributeSet attrs) {
@@ -57,6 +75,8 @@ public class NavigationEntry extends LinearLayout {
 
         setText(itemText);
 
+        if (itemIcon != null)
+            setIcon(itemIcon);
 
     }
 
@@ -64,14 +84,18 @@ public class NavigationEntry extends LinearLayout {
      * 设置LinearLayout的布局展开方向，子View的位置以及LinearLayout的padding
      */
     private void setupView() {
+        //设置LinearLayout布局方向
         setOrientation(LinearLayout.HORIZONTAL);
+        //设置LinearLayout背景
+        setBackground(ContextCompat.getDrawable(getContext(), R.drawable.bg_ripple));
+        //设置子View摆放位置
         setGravity(Gravity.CENTER_VERTICAL);
 
         /*
          * NOTE:
          * getDimension()/getDimensionPixelOffset()/getDimensionPixelSize()方法的区别：
          * 这三个方法都是把dimen.xml文件中的dp或者sp数值乘以屏幕的scale值来换算成px单位，scale或者
-         * dp,sp的值都有可能是小数，那么换算成px后，数值的小数位怎么处理呢？这就依靠这三个方法了，这也是
+         * dp,sp的值都有可能是小数，那么换算成px后，数值的小数位怎么处理呢？就依靠这三个方法了，这也是
          * 三个方法的主要区别
          * - getDimension()：返回float型的px值，精确
          * - getDimensionPixelOffset()：返回int型px值，直接忽略小数点后面的数
@@ -82,13 +106,13 @@ public class NavigationEntry extends LinearLayout {
         setPadding(horizontalSpacing, verticalSpacing, horizontalSpacing, verticalSpacing);
     }
 
-    public void setText(@Nullable String text) {
+    private void setText(@Nullable String text) {
         //TextView.setText(CharSequence)方法中的CharSequence类型的参数是可以为空的，
         //方法内部对空值进行了判断：text == null ? "":text
         this.mTvText.setText(text);
     }
 
-    public void setIcon(@NonNull String icon) {
-        this.mIvIcon.setIcon(new IconicsDrawable(getContext(), icon));
+    private void setIcon(@NonNull String iconText) {
+        this.mIvIcon.setIcon(new IconicsDrawable(getContext(), iconText));
     }
 }

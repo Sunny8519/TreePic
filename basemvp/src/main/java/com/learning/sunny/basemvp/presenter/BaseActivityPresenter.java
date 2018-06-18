@@ -5,7 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
-import com.learning.sunny.basemvp.view.IDelegate;
+import com.learning.sunny.basemvp.view.BaseActivityViewDelegate;
+import com.learning.sunny.basemvp.view.IActivityViewDelegate;
 
 /**
  * author: Sunny
@@ -13,7 +14,7 @@ import com.learning.sunny.basemvp.view.IDelegate;
  * desc:
  */
 
-public abstract class BaseActivityPresenter<V extends IDelegate> extends AppCompatActivity {
+public abstract class BaseActivityPresenter<V extends IActivityViewDelegate> extends AppCompatActivity {
 
     protected V viewDelegate;
 

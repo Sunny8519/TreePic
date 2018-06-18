@@ -4,7 +4,7 @@ import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 
-import com.learning.sunny.basemvp.view.BaseViewDelegate;
+import com.learning.sunny.basemvp.view.BaseActivityViewDelegate;
 import com.sunny.learning.themeutils.ColorPalette;
 import com.sunny.learning.treepic.App;
 import com.sunny.learning.treepic.R;
@@ -16,7 +16,7 @@ import com.sunny.learning.treepic.databinding.ActivitySplashScreenBinding;
  * desc:
  */
 
-public class SplashActivityViewDelegate extends BaseViewDelegate<ActivitySplashScreenBinding> {
+public class SplashActivityViewDelegate extends BaseActivityViewDelegate<ActivitySplashScreenBinding> {
     @Override
     public int getRootLayoutId() {
         return R.layout.activity_splash_screen;
@@ -24,7 +24,6 @@ public class SplashActivityViewDelegate extends BaseViewDelegate<ActivitySplashS
 
     @Override
     public void initWidget() {
-        super.initWidget();
         /*
         * http://www.360doc.com/content/15/0204/18/20385871_446270224.shtml
         * https://www.cnblogs.com/8dull/p/5383135.html

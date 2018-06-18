@@ -8,7 +8,7 @@ import android.widget.ScrollView;
 /**
  * author: Sunny
  * time: 2018/5/22
- * desc:
+ * desc: 自定义抽屉View
  */
 
 public class NavigationDrawer extends ScrollView {

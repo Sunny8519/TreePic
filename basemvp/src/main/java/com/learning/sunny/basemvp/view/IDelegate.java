@@ -18,9 +18,7 @@ public interface IDelegate {
 
     View getRootView();
 
+    int getRootLayoutId();
+
     void initWidget();
-
-    int getOptionsMenuId();
-
-    Toolbar getToolbar();
 }

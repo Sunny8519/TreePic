@@ -3,6 +3,7 @@ package com.sunny.learning.treepic.activities;
 import com.learning.sunny.basemvp.databinder.DataBindActivity;
 import com.learning.sunny.basemvp.model.IModel;
 import com.learning.sunny.basemvp.presenter.BaseActivityPresenter;
+import com.learning.sunny.basemvp.view.IActivityViewDelegate;
 import com.learning.sunny.basemvp.view.IDelegate;
 import com.sunny.learning.themeutils.ThemedActivity;
 
@@ -12,7 +13,7 @@ import com.sunny.learning.themeutils.ThemedActivity;
  * desc :
  */
 
-public abstract class SharedMediaActivity<V extends IDelegate, M extends IModel> extends DataBindActivity<V, M> {
+public abstract class SharedMediaActivity<V extends IActivityViewDelegate, M extends IModel> extends DataBindActivity<V, M> {
 
     public void requestSdCardPermissions() {
 

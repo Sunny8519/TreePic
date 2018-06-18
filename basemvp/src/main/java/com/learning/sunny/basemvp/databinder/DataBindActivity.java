@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.learning.sunny.basemvp.model.IModel;
 import com.learning.sunny.basemvp.presenter.BaseActivityPresenter;
+import com.learning.sunny.basemvp.view.IActivityViewDelegate;
 import com.learning.sunny.basemvp.view.IDelegate;
 
 /**
@@ -12,7 +13,7 @@ import com.learning.sunny.basemvp.view.IDelegate;
  * desc:
  */
 
-public abstract class DataBindActivity<V extends IDelegate, M extends IModel> extends BaseActivityPresenter<V> {
+public abstract class DataBindActivity<V extends IActivityViewDelegate, M extends IModel> extends BaseActivityPresenter<V> {
     protected IBinder<V, M> mBinder = null;
 
     @Override
